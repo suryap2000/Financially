@@ -1,0 +1,39 @@
+{
+   "background": {
+      "scripts": [ "libs/sanitize-html/sanitize-html.js", "extWordHighlighter.js" ]
+   },
+   "browser_action": {
+      "default_icon": "FinanciallyLogo.png",
+      "default_popup": "popup.html"
+   },
+   "commands": {
+      "ScrollHighlight": {
+         "description": "ScrollHighlight",
+         "suggested_key": {
+            "default": "Ctrl+Shift+Space",
+            "mac": "Command+Shift+Space"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "css": [ "highlightThis.css" ],
+      "js": [ "libs/jquery/jquery-3.3.1.js", "hilitor.js", "tabWordHighlighter.js" ],
+      "match_about_blank": true,
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "Helping your Financial Literacy",
+   "icons": {
+      "16": "FinanciallyLogo.png",
+      "96": "FinanciallyLogo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4qbwro4b0R7cWD43H9p1R/1zo2bXD92jSfXUG9cK4o/bPEQMn8jd4Zv8C50vB5r0Xo/HPFnc8Kb3gPzGs0vVMwiCTAvcANkgUyppUgOCMjdHeYFdHMlVPGKM0sDM9TUuKKgT2EjjZh+utU48H7JsMALLVBuUMFo2xsXj4hGFr44nx5B5TSfBwFCP6M+xI499Owa5wU65I/qe4HeVV7urF9dy/s0ttmBJWebTLPTbsF9QnJfCP+L1ewWflfHiVZscUkzW+IxkwGRbpth1yXFuRsJ/4UZBQtL7mo18lJaoU5qLdthJcwde4MiyvgvcD5ZUeTKXl5fo+vwd3+q/hX47LQIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_application_title__",
+   "permissions": [ "tabs", "contextMenus", "notifications", "activeTab", "alarms", "downloads", "storage" ],
+   "short_name": "Highlight This",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "4.5"
+}

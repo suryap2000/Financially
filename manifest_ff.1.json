@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Financially",
+  "short_name": "Financially",
+  "description": "Helping your Financial Literacy",
+  "default_locale": "en",
+  "permissions": ["tabs","contextMenus","notifications","activeTab","alarms","downloads","storage"],
+  "icons": {
+    "16": "FinanciallyLogo.png",
+    "96": "FinanciallyLogo.png"
+  },
+  "background": {
+    "scripts": ["libs/sanitize-html/sanitize-html.js", "extWordHighlighter.js"]
+  },
+  "commands": {
+    "ScrollHighlight": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "Command+Shift+Space"
+      },
+      "description": "ScrollHighlight"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "highlightthis@deboel.eu"
+    }
+  },
+  "version": "4.4.5",
+  "content_scripts": [
+    {
+      "matches": ["http://*/*","https://*/*"],
+      "js": ["libs/jquery/jquery-3.3.1.js","hilitor.js","tabWordHighlighter.js"],
+      "css" : ["highlightThis.css"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "FinanciallyLogo.png",
+    "default_popup": "popup.html"
+  }
+
+}
